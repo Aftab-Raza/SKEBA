@@ -15,3 +15,21 @@ Implementation of the IEEE paper:
 - [ ] Access Control Phase
 - [ ] Attack Simulation
 - [ ] Performance Evaluation
+
+## Current Progress
+
+✅ Environment
+
+✅ Crypto Layer
+
+✅ Registration
+
+⬜ Login
+
+⬜ Access Control
+
+⬜ Saber Integration
+
+⬜ Security Analysis
+
+⬜ Performance Evaluation
