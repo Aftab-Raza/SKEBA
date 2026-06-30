@@ -1,20 +1,39 @@
-from crypto.hash_utils import sha3_256, sha3_512
-from crypto.random_utils import random_hex, random_int
+from user.registration import User
+from server.server import Server
+from smartcard.smartcard import SmartCard
 
-print("=" * 50)
-print("SKEBA Project")
-print("=" * 50)
+from crypto.hash_utils import sha3_256
 
-message = "Hello Vickey"
+print("="*60)
+print("SKEBA Registration Phase")
+print("="*60)
 
-print("\nSHA3-256")
-print(sha3_256(message))
+user = User(
+    "vickey123",
+    "MyPassword@123"
+)
 
-print("\nSHA3-512")
-print(sha3_512(message))
+server = Server()
 
-print("\nRandom Hex")
-print(random_hex())
+card = SmartCard()
 
-print("\nRandom Integer")
-print(random_int())
+beta = user.generate_beta()
+
+print("\nBeta Generated")
+
+lambda_value, gamma, pk = server.register_user(
+    user.user_id,
+    beta
+)
+
+card.lambda_value = lambda_value
+
+card.public_key = pk
+
+card.eta = sha3_256(user.user_id + user.password)
+
+card.zeta = sha3_256(card.eta + gamma)
+
+card.display()
+
+print("\nRegistration Successful")
