@@ -1,15 +1,20 @@
-from protocol.setup import Setup
+from entities.server import Server
 
 print("=" * 60)
 print("SKEBA")
 print("=" * 60)
 
-setup = Setup()
+server = Server()
 
-server = setup.initialize()
+server.setup()
 
 print()
 
-print("Server Created")
+print("Protocol :", server.protocol)
+print("Version  :", server.version)
+print("Hash     :", server.hash_algorithm)
+print("Security :", server.security_level)
 
-print(server)
+print()
+
+print("Server Ready :", server.initialized)
