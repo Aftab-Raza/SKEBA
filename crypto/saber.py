@@ -1,8 +1,17 @@
 """
-saber.py
-
-This file will later contain the Saber Key Encapsulation wrapper.
-
-For now it is intentionally empty because we first
-implement the protocol logic.
+Official Saber Implementation
 """
+
+from crypto.kem import KEM
+
+
+class Saber(KEM):
+
+    def keypair(self):
+        raise NotImplementedError
+
+    def encaps(self, public_key):
+        raise NotImplementedError
+
+    def decaps(self, ciphertext, private_key):
+        raise NotImplementedError
