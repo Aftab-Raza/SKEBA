@@ -1,17 +1,18 @@
 """
-Official Saber Implementation
+Official Saber Python Interface
 """
 
-from crypto.kem import KEM
+import ctypes
+from pathlib import Path
 
+# Native library path
+LIB_PATH = (
+    Path(__file__).resolve().parent.parent
+    / "native"
+    / "libsaber.so"
+)
 
-class Saber(KEM):
+# Load the shared library
+lib = ctypes.CDLL(str(LIB_PATH))
 
-    def keypair(self):
-        raise NotImplementedError
-
-    def encaps(self, public_key):
-        raise NotImplementedError
-
-    def decaps(self, ciphertext, private_key):
-        raise NotImplementedError
+print("[+] Official Saber library loaded successfully.")
