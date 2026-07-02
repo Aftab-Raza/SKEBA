@@ -1,14 +1,18 @@
-from crypto.saber import *
+from crypto.saber import Saber
 
 print("=" * 60)
-print("Official Saber Wrapper")
+print("Official Saber Key Generation")
 print("=" * 60)
 
-print("Library Loaded")
+saber = Saber()
+
+pk, sk = saber.keypair()
 
 print()
 
-print("Public Key Size :", PUBLIC_KEY_BYTES)
-print("Secret Key Size :", SECRET_KEY_BYTES)
-print("Ciphertext Size :", CIPHERTEXT_BYTES)
-print("Shared Secret   :", SHARED_SECRET_BYTES)
+print("Public Key Length :", len(pk))
+print("Secret Key Length :", len(sk))
+
+print()
+
+print("SUCCESS")
